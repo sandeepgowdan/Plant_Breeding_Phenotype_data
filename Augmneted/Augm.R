@@ -2,10 +2,10 @@
 
 ## ANOVA and Genetic parameters for Augmented design library(augmentedRCBD)
 library(augmentedRCBD)
-data <- read.table("data/data22.csv", header = TRUE, sep = ",")
+data1 <- read.table("data22.csv", header = TRUE, sep = ",")
 trt<-as.factor(data$Genotypes)
 blk<-as.factor(data$Block)
-bout <- augmentedRCBD.bulk(data = data22, block = "Block",
+bout <- augmentedRCBD.bulk(data = data1, block = "Block",
                            treatment = "Genotypes", traits = c("PH", "FEW", 
                                                                "NOF", "FYPP"),
                            checks = NULL, alpha = 0.05, describe = TRUE,
@@ -13,4 +13,9 @@ bout <- augmentedRCBD.bulk(data = data22, block = "Block",
                            check.col = c("brown", "darkcyan",
                                          "forestgreen", "purple", "blue"),
                            console = TRUE)
-report.augmentedRCBD.bulk(bout, file.path(("output"), "augmentedRCBDbulkoutput.docx"))
+
+
+zz
+report.augmentedRCBD.bulk(bout, file.path("augmentedRCBDbulkoutput.docx"))
+
+                          
