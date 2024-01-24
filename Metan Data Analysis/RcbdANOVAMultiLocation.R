@@ -1,0 +1,16 @@
+#!/usr/bin/env Rscript
+##ANOVA for RCBD for multi location Experiment
+library(Matrix)
+library(lme4)
+library(emmeans)
+library(agricolae)
+library(reshape)
+library(reshape2)
+library(car)
+data <- read.table("data/data11.csv", header = TRUE, sep = ",")
+data$LOCATION<- factor(data$LOCATION)
+data$TRT<- factor(data$TRT)
+data$REP<- factor(data$REP)
+structure(data)
+q = lm(YIELD ~ TRT+LOCATION +(TRT:LOCATION)+(LOCATION:REP), data = data)
+anova(q)
